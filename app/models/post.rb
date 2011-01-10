@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   acts_as_taggable
   validates_presence_of :title, :summary
   has_many :images, :as => :viewable, :order => :position, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
   before_save :check_published
 
   default_scope order('publish, published_on DESC')

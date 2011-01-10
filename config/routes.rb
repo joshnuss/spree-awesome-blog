@@ -11,5 +11,6 @@ Rails.application.routes.draw do
 
   namespace :admin do 
     resources :posts
+    match '/comments', :to => "posts#index", :as => 'comments'
   end
 end

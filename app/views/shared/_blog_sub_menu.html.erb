@@ -1,0 +1,9 @@
+<% content_for :sub_menu do %>
+  <ul id="sub_nav">
+    <%= hook :admin_blog_sub_tabs do %>
+      <%= tab :posts, :match_path => '/posts' %>
+      <%= tab :comments, :match_path => '/comments' %>
+    <% end %>
+  </ul>
+<% end %>
+
