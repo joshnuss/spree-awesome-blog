@@ -1,3 +1,12 @@
 --- 
 en:  
+  blog: Blog
+  posts: Posts
+  title: Title
+  summary: Summary
+  new_post: New Post
+  unpublished: Unpublished
+  published: Published
+  publish: Publish
+  body: Body
 

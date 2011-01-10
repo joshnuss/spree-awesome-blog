@@ -1,0 +1,45 @@
+<div class='toolbar'>
+    <ul class='actions'>
+      <li id="new_post_link">
+        <%= button_link_to t("new_post"), 
+                         new_object_url, 
+                         {:remote => :true, :icon => 'add' } %>
+      </li> 
+    </ul>
+  <br class='clear' />
+</div>
+<div id="new_post"></div>
+
+<h1><%= t("posts") %></h1>
+<table class="index">
+  <thead>
+    <%= hook :admin_posts_index_headers do %>
+      <th><%= t("title") %></td>
+      <th><%= t("summary") %></td>
+      <th><%= t("status") %></td>
+    <% end %>
+    <th>
+      <%= hook :admin_posts_header_actions %>
+    </th>
+  </tr>
+  <thead>
+<% @posts.each do |post| %>
+  <tr id="<%= dom_id post %>"> 
+    <%- locals = {:post => post} %>
+    <%= hook :admin_posts_index_rows, locals do %>
+      <td><%= post.title %></td>
+      <td><%= post.summary %></td>
+      <td><%= post.publish ? link_to(t(post.status), post_path(post), :target => post.permalink) : t(post.status) %></td>
+    <% end %>
+    <td class="actions">
+      <%= hook :admin_posts_index_row_actions, locals do %>
+        <%= link_to_edit post %>&nbsp;
+        <%= link_to_delete post %>
+      <% end %>
+    </td>
+  </tr>
+<% end %> 
+  </tbody>
+</table>
+<%= will_paginate(:previous_label => "&#171; #{t('previous')}", :next_label => "#{t('next')} &#187;") %>
+

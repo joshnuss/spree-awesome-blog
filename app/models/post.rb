@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   has_many :images, :as => :viewable, :order => :position, :dependent => :destroy
   before_save :check_published
 
+  default_scope order('publish, published_on DESC')
   scope :published, where(:publish => true)
 
   def self.by_date(year, month=nil, day=nil) 
@@ -20,6 +21,10 @@ class Post < ActiveRecord::Base
     end
 
     where('published_on BETWEEN ? AND ?', start_date, end_date)
+  end
+
+  def status
+    publish ? "published" : "unpublished"
   end
 
   def to_param

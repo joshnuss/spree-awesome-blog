@@ -1,0 +1,23 @@
+<%= render "shared/error_messages", :target => f.object %>
+<fieldset>
+    <%= f.field_container :title do %>
+        <%= f.label :title, t("title") %> <span class="required">*</span><br />
+        <%= f.text_field :title, :class => 'fullwidth title'  %>  
+        <%= f.error_message_on :title %>
+    <% end %>
+    <%= f.field_container :summary do %>
+        <%= f.label :summary, t("summary") %> <span class="required">*</span><br />
+        <%= f.text_area :summary, :class => 'fullwidth', :style => 'height: 80px'  %>  
+        <%= f.error_message_on :summary %>
+    <% end %>
+    <%= f.field_container :body do %>
+        <%= f.label :body, t("body") %>
+        <%= f.text_area :body, :class => 'fullwidth'  %>  
+        <%= f.error_message_on :body %>
+    <% end %>
+    <%= f.field_container :publish do %>
+        <%= f.check_box :publish  %>  
+        <%= f.label :publish, t("publish") %>
+        <%= f.error_message_on :publish %>
+    <% end %>
+</fieldset>

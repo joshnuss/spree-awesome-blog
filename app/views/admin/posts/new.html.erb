@@ -1,0 +1,4 @@
+<%= form_for @post, :url => collection_path do |f| %>
+  <% render 'form', :f => f %>
+  <%= render :partial => 'admin/shared/new_resource_links' %>
+<% end %>

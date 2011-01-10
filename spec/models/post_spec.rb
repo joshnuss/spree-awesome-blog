@@ -20,6 +20,16 @@ describe Post do
     end
   end
 
+  describe "status" do
+    it "should be unpublished for new post" do
+      create_post.status.should eql('unpublished')
+    end
+
+    it "should be published after post is published" do
+      create_post(:publish => true).status.should eql('published')
+    end
+  end
+
   it "should have images" do
     create_post.should have(0).images
   end
