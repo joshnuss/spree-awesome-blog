@@ -1,0 +1,25 @@
+<h1><%= raw(t("editing_post") + " &ldquo;#{@post.title}&rdquo;") %></h1>
+
+<% content_for :sidebar do %>
+
+  <h3><%= @post.title %></h3>
+  <br class="clear" />
+
+  <ul class="sidebar post-menu">
+    <%= hook :admin_post_tabs, {:current => current} do %>
+
+      <li<%= raw(' class="active"') if current == "Post" %>>
+      <%= link_to t("post"), edit_admin_post_path(@post) %>
+      </li>
+      <li<%= raw(' class="active"') if current == "Images" %>>
+      <%= link_to t("images"), admin_post_comments_path(@post) %>
+      </li>
+      <li<%= raw(' class="active"') if current == "Comments" %>>
+      <%= link_to "#{t("comments")} (#{@post.comments.count})",  admin_post_comments_path(@post)  %>
+      </li>
+    <% end %>
+  </ul>
+  <br class="clear" />
+
+<% end %>
+

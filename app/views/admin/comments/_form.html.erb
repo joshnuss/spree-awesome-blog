@@ -1,0 +1,23 @@
+<%= render "shared/error_messages", :target => f.object %>
+<fieldset>
+    <%= f.field_container :name do %>
+        <%= f.label :name, t("name") %> <span class="required">*</span><br />
+        <%= f.text_field :name, :class => 'fullwidth name'  %>  
+        <%= f.error_message_on :name %>
+    <% end %>
+    <%= f.field_container :email do %>
+        <%= f.label :email, t("email") %> <span class="required">*</span><br />
+        <%= f.text_field :email, :class => 'fullwidth'  %>  
+        <%= f.error_message_on :email %>
+    <% end %>
+    <%= f.field_container :message do %>
+        <%= f.label :message, t("message") %><span class="required">*</span><br />
+        <%= f.text_area :message, :class => 'fullwidth'  %>  
+        <%= f.error_message_on :message %>
+    <% end %>
+    <%= f.field_container :approved do %>
+        <%= f.check_box :approved  %>  
+        <%= f.label :approved, t("approved") %>
+        <%= f.error_message_on :approved %>
+    <% end %>
+</fieldset>

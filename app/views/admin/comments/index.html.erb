@@ -1,0 +1,43 @@
+<%= render 'shared/blog_sub_menu' %>
+
+<h1><%= @post ? "#{t("comments_for")} \"#{@post.title}\"" : t("comments") %></h1>
+<table class="index">
+  <thead>
+    <%= hook :admin_comments_index_headers do %>
+      <% unless @post %>
+        <th><%= t("post") %></td>
+      <% end %>
+      <th><%= t("name") %></td>
+      <th><%= t("email") %></td>
+      <th><%= t("message") %></td>
+      <th><%= t("status") %></td>
+    <% end %>
+    <th>
+      <%= hook :admin_comments_header_actions %>
+    </th>
+  </tr>
+  <thead>
+<% @comments.each do |comment| %>
+  <tr id="<%= dom_id comment %>"> 
+    <%- locals = {:comment => comment} %>
+    <%= hook :admin_comments_index_rows, locals do %>
+      <% unless @post %>
+        <td><%= link_to comment.post.title, edit_admin_post_path(comment.post) %></td>
+      <% end %>
+      <td><%= comment.name %></td>
+      <td><%= comment.email %></td>
+      <td><%= comment.message %></td>
+      <td><%= comment.approved ? link_to(t(comment.status), post_path(comment.post), :target => comment.post.permalink) : t(comment.status) %></td>
+    <% end %>
+    <td class="actions">
+      <%= hook :admin_comments_index_row_actions, locals do %>
+        <%= link_to_edit comment %>&nbsp;
+        <%= link_to_delete comment %>
+      <% end %>
+    </td>
+  </tr>
+<% end %> 
+  </tbody>
+</table>
+<%= will_paginate(:previous_label => "&#171; #{t('previous')}", :next_label => "#{t('next')} &#187;") %>
+

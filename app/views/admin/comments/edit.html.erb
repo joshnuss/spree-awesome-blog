@@ -1,8 +1,6 @@
 <%= render 'shared/blog_sub_menu' %>
 
-<%= render :partial => 'shared/blog_tabs', :locals => {:current => "Post"} %>
-
-<%= form_for @post, :url => object_path do |f| %>
+<%= form_for @comment, :url => object_path do |f| %>
   <%= render 'form', :f => f %>
   <%= render :partial => 'admin/shared/edit_resource_links' %>
 <% end %>

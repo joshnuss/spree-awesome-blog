@@ -10,4 +10,8 @@ en:
   publish: Publish
   body: Body
   comments: Comments
-
+  post: Post
+  approved: Approved
+  not approved: Not Approved
+  editing_post: Editing post
+  comments_for: Comments for
