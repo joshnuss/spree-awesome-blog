@@ -5,7 +5,8 @@ class CreatePosts < ActiveRecord::Migration
       t.string :permalink
       t.text :summary
       t.text :body
-      t.boolean :published
+      t.text :tags
+      t.boolean :publish
       t.datetime :published_on
 
       t.timestamps
