@@ -10,7 +10,10 @@ class PostsController < Spree::BaseController
     @posts = @posts.published
     @posts.tagged_with(@tag) if @tag
     
-    @posts = @posts.paginate(:page => params[:page])
+    respond_to do |format|
+      format.html { @posts = @posts.paginate(:page => params[:page]) }
+      format.rss
+    end
   end
 
   def show

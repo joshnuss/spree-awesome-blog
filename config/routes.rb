@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope "/#{ Spree::Config[:blog_title] || 'blog'}" do
+  scope "/#{(Spree::Config[:blog_title] || 'blog').to_url}" do
     match "/",                      :to => "posts#index", :as => 'posts'
     match '/tagged/:tag',           :to => 'posts#index', :as => 'posts_by_tag'
     match '/:year(/:month(/:day))', :to => 'posts#index', :as => 'posts_by_date', 

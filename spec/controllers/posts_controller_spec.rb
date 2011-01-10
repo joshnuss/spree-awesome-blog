@@ -31,6 +31,19 @@ describe PostsController do
     end
   end
 
+  describe "GET /index.rss" do
+    it "should be success" do
+      get :index, :format => :rss
+      response.should be_success
+    end
+
+    it "should assign posts" do
+      Post.should_receive(:published).and_return(:posts)
+      get :index, :format => :rss
+      assigns(:posts).should eql(:posts)
+    end
+  end
+
   describe "GET /index with tags" do
     it "should be success" do
       get :index, :tag => 'awesome'
