@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   make_permalink
   acts_as_taggable
   validates_presence_of :title, :summary
+  has_many :images, :as => :viewable, :order => :position, :dependent => :destroy
   before_save :check_published
 
   scope :published, where(:publish => true)

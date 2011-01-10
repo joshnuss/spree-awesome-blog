@@ -20,6 +20,10 @@ describe Post do
     end
   end
 
+  it "should have images" do
+    create_post.should have(0).images
+  end
+
   describe "when publishing" do
     it "should save publish date" do
       post = create_post(:publish => true)
