@@ -6,7 +6,7 @@ class PostsController < Spree::BaseController
     @month = params[:month]
     @day   = params[:day]
 
-    @posts = @year ? Post.by_date(@year, @month, @day) : Post
+    @posts = @year ? Post.by_date(@year.to_i, @month.try(:to_i), @day.try(:to_i)) : Post
     @posts = @posts.published
     @posts.tagged_with(@tag) if @tag
     
