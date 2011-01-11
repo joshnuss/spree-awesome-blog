@@ -1,4 +1,3 @@
-<%= @tag %>
-<%= @year %>
-<%= @month %>
-<%= @day %>
+<% self.title = make_title(@tag, @year, @month, @day) %>
+
+<h1><%= make_title(@tag, @year, @month, @day) %></h1>

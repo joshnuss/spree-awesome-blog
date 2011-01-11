@@ -9,7 +9,7 @@ class PostsController < Spree::BaseController
     @posts = @year ? Post.by_date(@year.to_i, @month.try(:to_i), @day.try(:to_i)) : Post
     @posts = @posts.published
     @posts.tagged_with(@tag) if @tag
-    
+
     respond_to do |format|
       format.html { @posts = @posts.paginate(:page => params[:page]) }
       format.rss

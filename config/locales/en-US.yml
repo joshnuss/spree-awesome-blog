@@ -15,3 +15,7 @@ en:
   not approved: Not Approved
   editing_post: Editing post
   comments_for: Comments for
+  posts_tagged: Posts tagged %s
+  posts_year: Posts for year %s
+  posts_month: Posts for %s
+  posts_day: Posts for %s
