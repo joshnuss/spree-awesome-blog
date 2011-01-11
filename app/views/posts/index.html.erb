@@ -1,3 +1,29 @@
 <% self.title = make_title(@tag, @year, @month, @day) %>
 
-<h1><%= make_title(@tag, @year, @month, @day) %></h1>
+<div id="posts">
+  <h1><%= make_title(@tag, @year, @month, @day) %></h1>
+
+  <% @posts.each do |post| %>
+    <div class="post">
+      <h2><%= link_to post.title, post_path(post) %></h2>
+      <div class="date">
+        <%= post.published_on.to_date.to_s :long %>
+      </div>
+      <div class="summary">
+        <%= post.summary %>
+      </div>
+      <div class="read-more">
+        <%= link_to t("read_more"), post_path(post) %>
+      </div>
+      <div class="tags">
+        <%= render 'tags', :tags => post.tags %>
+      </div>
+      <div class="comments">
+        <%= link_to t("comments"), "#{post_path(post)}#comments" %>
+      </div>
+    </div>
+  <% end %>
+  <%= will_paginate(@posts,
+                       :previous_label => "&#171; #{t('previous')}",
+                       :next_label => "#{t('next')} &#187;") %>
+</div>

@@ -25,7 +25,7 @@ describe PostsController do
     it "should assign posts" do
       published = mock(:published)
       Post.should_receive(:published).and_return(published)
-      published.should_receive(:paginate).with(:page => 2).and_return(:posts)
+      published.should_receive(:paginate).with(:page => 2, :per_page => 10).and_return(:posts)
       get :index, :page => 2
       assigns(:posts).should eql(:posts)
     end
@@ -54,7 +54,7 @@ describe PostsController do
       published, tagged = mock(:published), mock(:tagged)
       Post.should_receive(:published).and_return(published)
       published.should_receive(:tagged_with).with('awesome').and_return(tagged)
-      published.should_receive(:paginate).with(:page => 2).and_return(:posts)
+      tagged.should_receive(:paginate).with(:page => 2, :per_page => 10).and_return(:posts)
       get :index, :tag => 'awesome', :page => 2
       assigns(:posts).should eql(:posts)
       assigns(:tag).should eql('awesome')
@@ -71,7 +71,7 @@ describe PostsController do
       published, by_date = mock(:published), mock(:by_date)
       Post.should_receive(:by_date).with(2010,2,1).and_return(by_date)
       by_date.should_receive(:published).and_return(published)
-      published.should_receive(:paginate).with(:page => 2).and_return(:posts)
+      published.should_receive(:paginate).with(:page => 2, :per_page => 10).and_return(:posts)
       get :index, :year => 2010, :month => 2, :day => 1, :page => 2
       assigns(:posts).should eql(:posts)
       assigns(:year).should eql(2010)

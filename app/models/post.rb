@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   before_save :check_published
 
-  default_scope order('publish, published_on DESC')
+  default_scope includes(:tags).order('publish, published_on DESC')
   scope :published, where(:publish => true)
 
   def self.by_date(year, month=nil, day=nil) 

@@ -10,6 +10,7 @@ en:
   publish: Publish
   body: Body
   comments: Comments
+  comment: Comment
   post: Post
   approved: Approved
   not approved: Not Approved
@@ -19,3 +20,6 @@ en:
   posts_year: Posts for year %s
   posts_month: Posts for %s
   posts_day: Posts for %s
+  read_more: Read more
+  tags: Tags
+  comma_seperated: Comma seperated

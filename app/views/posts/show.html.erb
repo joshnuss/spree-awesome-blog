@@ -1,0 +1,17 @@
+<% self.title = @post.title %>
+<% def self.object; @post; end %>
+<div id="post">
+  <h1><%= @post.title %></h1>
+  <div id="date">
+    <%= @post.published_on.to_date.to_s :long %>
+  </div>
+  <div id="tags">
+    <%= render 'tags', :tags => @post.tags %>
+  </div>
+  <div id="summary">
+    <%= @post.summary %>
+  </div>
+  <div id="body">
+    <%= @post.body %>
+  </div>
+</div>

@@ -8,6 +8,8 @@ class CreatePosts < ActiveRecord::Migration
       t.text :tags
       t.boolean :publish
       t.datetime :published_on
+      t.string :meta_keywords
+      t.string :meta_description
 
       t.timestamps
     end
