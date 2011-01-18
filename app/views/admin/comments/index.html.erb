@@ -26,7 +26,7 @@
       <% end %>
       <td><%= comment.name %></td>
       <td><%= comment.email %></td>
-      <td><%= comment.message %></td>
+      <td><%= markdown comment.message %></td>
       <td><%= comment.approved ? link_to(t(comment.status), post_path(comment.post), :target => comment.post.permalink) : t(comment.status) %></td>
     <% end %>
     <td class="actions">

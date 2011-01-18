@@ -12,7 +12,7 @@
     <% end %>
     <%= f.field_container :message do %>
         <%= f.label :message, t("message") %><span class="required">*</span><br />
-        <%= f.text_area :message, :class => 'fullwidth'  %>  
+        <%= f.text_area :message, :class => 'fullwidth editor'  %>  
         <%= f.error_message_on :message %>
     <% end %>
     <%= f.field_container :approved do %>

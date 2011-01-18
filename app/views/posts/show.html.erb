@@ -14,4 +14,16 @@
   <div id="date">
     Posted <%= time_ago_in_words @post.published_on %> ago
   </div>
+
+  <div id="comments">
+    <h2><%= t("comments") %></h2>
+    <% @post.comments.approved.each do |comment| %>
+      <div class="comment">
+        <%= markdown comment.message %>
+        <div class="info">
+          Posted <%= time_ago_in_words comment.created_at %> ago by <%= comment.name %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
