@@ -9,7 +9,7 @@ class CommentsController < Spree::BaseController
     @comment = @post.comments.build(params[:comment])
     @comment.user = current_user
     if @comment.save
-      flash[:notice] = I18n.t(:created_successfully)
+      flash[:notice] = I18n.t(:created_successfully_pending_approval)
       redirect_to post_path(@post)
     else
       render 'new'

@@ -9,6 +9,7 @@
       <% end %>
       <th><%= t("name") %></td>
       <th><%= t("email") %></td>
+      <th><%= t("url") %></td>
       <th><%= t("message") %></td>
       <th><%= t("status") %></td>
     <% end %>
@@ -26,6 +27,7 @@
       <% end %>
       <td><%= comment.name %></td>
       <td><%= comment.email %></td>
+      <td><%= link_to(comment.url, comment.url) unless comment.url.empty? %></td>
       <td><%= markdown comment.message %></td>
       <td><%= comment.approved ? link_to(t(comment.status), post_path(comment.post), :target => comment.post.permalink) : t(comment.status) %></td>
     <% end %>

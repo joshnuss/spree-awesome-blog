@@ -5,6 +5,7 @@ class CreateComments < ActiveRecord::Migration
       t.integer :user_id
       t.string  :name
       t.string  :email
+      t.string  :url
       t.text    :message
       t.boolean :approved, :default => false
       t.datetime :approved_on

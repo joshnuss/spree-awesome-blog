@@ -23,3 +23,11 @@ en:
   read_more: Read more
   tags: Tags
   comma_seperated: Comma seperated
+  your_name: Your name
+  your_email: Your email
+  your_website: Your website
+  post_comment: Post Comment
+  commenting_on: Commenting on "%s"
+  not_shared: Your email is never shared with anyone
+  created_successfully_pending_approval: Comment was successfully created. It will displayed once it is approved
+  comment_on_post: Comment on this post

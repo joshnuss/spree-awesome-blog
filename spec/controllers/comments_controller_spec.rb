@@ -46,7 +46,7 @@ describe CommentsController do
 
         it "should set flash message" do
           post :create, :post_id => 'test-post', :comment => {:name => 'test'}
-          flash[:notice].should eql("Created Successfully")
+          flash[:notice].should eql(I18n.t(:created_successfully_pending_approval))
         end
       end
 

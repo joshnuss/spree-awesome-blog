@@ -4,12 +4,13 @@ class Comment < ActiveRecord::Base
   before_save :check_approved
   before_save :check_user, :if => :user
 
-  attr_accessible :name, :email, :message, :approved
+  attr_accessible :name, :email, :message, :url
 
   validates_presence_of :message, :post_id, :name
   validates_length_of   :message, :maximum => 1000
   validates_presence_of :email,   :unless => :user
   validates_format_of   :email,   :with => /\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i
+  validates_format_of   :url,     :with => /http\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/, :allow_blank => true
 
   default_scope order('approved, approved_on DESC')
   scope :approved, where(:approved => true)

@@ -10,6 +10,11 @@
         <%= f.text_field :email, :class => 'fullwidth'  %>  
         <%= f.error_message_on :email %>
     <% end %>
+    <%= f.field_container :url do %>
+        <%= f.label :url, t("url") %> <span class="required">*</span><br />
+        <%= f.text_field :url, :class => 'fullwidth'  %>  
+        <%= f.error_message_on :url %>
+    <% end %>
     <%= f.field_container :message do %>
         <%= f.label :message, t("message") %><span class="required">*</span><br />
         <%= f.text_area :message, :class => 'fullwidth editor'  %>  

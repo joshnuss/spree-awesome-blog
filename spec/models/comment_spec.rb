@@ -39,6 +39,10 @@ describe Comment do
       create_comment(:message => nil).should have(1).error_on(:message)
     end
 
+    it "should require valid url" do
+      create_comment(:url => 'sdfssssd').should have(1).error_on(:url)
+    end
+
     it "should not allow message longer than 1000 characters" do
       create_comment(:message => 'a' * 1001).should have(1).error_on(:message)
     end
@@ -79,9 +83,10 @@ describe Comment do
   end
 
   def create_comment(options={})
-    comment = Comment.new({:message => 'nice post!', :email => 'test@home.com', :name => 'John'}.merge(options))
+    comment = Comment.new({:message => 'nice post!', :email => 'test@home.com', :url => '', :name => 'John'}.merge(options))
     comment.post_id = options.key?(:post_id) ? options[:post_id] : 1
     comment.user = options[:user] if options.key?(:user)
+    comment.approved = options[:approved] if options.key?(:approved)
     comment.save
     comment
   end

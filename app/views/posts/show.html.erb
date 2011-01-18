@@ -25,5 +25,10 @@
         </div>
       </div>
     <% end %>
+    <div id="new-comment">
+      <p><%= t('comment_on_post') %></p>
+
+      <%= render 'comments/form', :comment => @post.comments.new, :post => @post %>
+    </div>
   </div>
 </div>

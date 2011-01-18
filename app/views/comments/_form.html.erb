@@ -1,0 +1,30 @@
+<%= form_for comment, :url => post_comments_path(post) do |f| %>
+  <%= render "shared/error_messages", :target => f.object %>
+  <p>
+    <%= f.label :name, t('your_name') %><span class="required">*</span>
+    <br/>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email, t('your_email') %><span class="required">*</span> 
+    <br/>
+    <% if current_user %>
+      <%= current_user.email %>
+    <% else %>
+      <%= f.text_field :email %>
+    <% end %>
+    <br/>
+    <span class="small"><%= t('not_shared') %></span>
+  </p>
+  <p>
+    <%= f.label :url, t('your_website') %>
+    <br/>
+    <%= f.text_field :url %>
+  </p>
+  <p>
+    <%= f.label :message, t('message') %> <span class="required">*</span>
+    <br/>
+    <%= f.text_area :message %>
+  </p>
+  <%= f.submit t('post_comment') %>
+<% end %>
