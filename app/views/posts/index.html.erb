@@ -1,5 +1,8 @@
 <% self.title = make_title(@tag, @year, @month, @day) %>
 
+<% content_for(:head) do %>
+  <%= stylesheet_link_tag 'blog' %>
+<% end %>
 <% content_for(:sidebar) do %>
   <%= render 'sidebar' %>
 <% end %>
@@ -8,10 +11,8 @@
   <h1><%= make_title(@tag, @year, @month, @day) %></h1>
 
   <% @posts.each do |post| %>
-    <div class="date">
-      <%= post.published_on.to_date.strftime '%A, %B %d, %Y' %>
-    </div>
     <div class="post">
+      <span class="date"> <%= post.published_on.to_date.strftime '%A, %B %d, %Y' %> </span>
       <h2><%= link_to post.title, post_path(post) %></h2>
       <div class="body">
         <%= markdown post.body %>
@@ -22,8 +23,8 @@
         <br/>
         <%= render 'tags', :tags => post.tags %>
       </div>
+      <hr/>
     </div>
-    <hr/>
   <% end %>
   <%= will_paginate(@posts,
                        :previous_label => "&#171; #{t('previous')}",

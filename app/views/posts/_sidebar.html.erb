@@ -3,20 +3,32 @@
   <ul class="years">
     <% @dates.each do |year, months| %>
       <li>
-      <%= year %>
+      <span><%= year %></span>
       <ul class="months">
         <% months.each do |month, posts| %>
-          <li><%= month.strftime('%B') %></li>
+          <li><span><%= month.strftime('%B') %></span>
           <ul class="posts">
             <% posts.each do |post| %>
               <li><%= link_to post.title, post_path(post) %></li>
             <% end %>
           </ul>
+          </li>
         <% end %>
       </ul>
       </li>
     <% end %>
   </ul>
 </div>
+
+<%= javascript_tag do %>
+  $('#blog-archive')
+  .find('ul:not(.years)')
+    .slideUp()
+    .end()
+  .find('span').click(function() {
+    $(this).find('+ul').slideToggle('slow');
+  });
+<% end %>
+
 <h2><%= t('tags') %></h2>
 <%= render 'tag_cloud' %>

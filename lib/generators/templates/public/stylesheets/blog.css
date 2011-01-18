@@ -1,0 +1,29 @@
+#posts h2 { font-size: 2em; }
+#posts h2 a { text-decoration: none; }
+#posts .post { margin: 5px 0px; }
+#posts .post hr { margin: 10px 0 20px; }
+#posts .post .body { margin: 0 40px 0 0; }
+#blog-archive span { cursor: pointer; }
+#blog-archive ul.months { display: none; }
+#blog-archive ul.posts { display: none; }
+#blog-archive ul.posts {
+  list-style-type: none;
+  margin: 0px;
+}
+.tag-cloud a { text-decoration: none; }
+.tag-cloud .tag1 {
+  font-size: 1em;
+  font-weight: lighter;
+}
+.tag-cloud .tag2 {
+  font-size: 1.2em;
+  font-weight: normal;
+}
+.tag-cloud .tag3 {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.tag-cloud .tag4 {
+  font-size: 1.6em;
+  font-weight: bolder;
+}
