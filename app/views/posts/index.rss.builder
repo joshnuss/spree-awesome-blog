@@ -8,7 +8,7 @@ xml.rss(:version=>"2.0"){
     for post in @posts
       xml.item do
         xml.title(post.title)
-        xml.description(post.summary + "<br/>#{link_to 'Read More', post_url(post)}")      
+        xml.description(markdown(post.body))      
         xml.pubDate(post.published_on.strftime("%a, %d %b %Y %H:%M:%S %z"))
         xml.link(post_url(post))
         xml.guid(post.permalink)

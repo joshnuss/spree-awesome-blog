@@ -1,10 +1,13 @@
 <% self.title = @post.title %>
 <% def self.object; @post; end %>
+
+<% content_for(:sidebar) do %>
+  <%= render 'sidebar' %>
+<% end %>
+
 <div id="post">
+  <div class="date"><%= @post.published_on.to_date.strftime '%A, %B %d, %Y' %></div>
   <h1><%= @post.title %></h1>
-  <div id="summary">
-    <%= markdown @post.summary %>
-  </div>
   <div id="body">
     <%= markdown @post.body %>
   </div>

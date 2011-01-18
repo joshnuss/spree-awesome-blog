@@ -17,7 +17,6 @@
   <thead>
     <%= hook :admin_posts_index_headers do %>
       <th><%= t("title") %></td>
-      <th><%= t("summary") %></td>
       <th><%= t("status") %></td>
     <% end %>
     <th>
@@ -30,7 +29,6 @@
     <%- locals = {:post => post} %>
     <%= hook :admin_posts_index_rows, locals do %>
       <td><%= post.title %></td>
-      <td><%= markdown post.summary %></td>
       <td>
         <% if post.publish %> 
           <%= link_to(t(post.status), post_path(post), :target => post.permalink) %>

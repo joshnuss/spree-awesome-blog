@@ -1,4 +1,5 @@
 class PostsController < Spree::BaseController
+  before_filter :load_tag_cloud
 
   def index
     @tag   = params[:tag]
@@ -18,6 +19,11 @@ class PostsController < Spree::BaseController
 
   def show
     @post = Post.published.find_by_permalink(params[:id])
+  end
+
+protected
+  def load_tag_cloud
+    @tags = Post.tag_counts_on(:tags)
   end
 
 end

@@ -14,6 +14,14 @@ describe PostsController do
       get :show, :id => 'test'
       assigns(:post).should eql(:post)
     end
+
+    it "should assign tags" do
+      Post.should_receive(:tag_counts_on).with(:tags).and_return(:tags)
+
+      get :show, :id => 'test'
+      
+      assigns(:tags).should eql(:tags)
+    end
   end
 
   describe "GET /index" do
@@ -28,6 +36,14 @@ describe PostsController do
       published.should_receive(:paginate).with(:page => 2, :per_page => 10).and_return(:posts)
       get :index, :page => 2
       assigns(:posts).should eql(:posts)
+    end
+
+    it "should assign tags" do
+      Post.should_receive(:tag_counts_on).with(:tags).and_return(:tags)
+
+      get :index
+      
+      assigns(:tags).should eql(:tags)
     end
   end
 

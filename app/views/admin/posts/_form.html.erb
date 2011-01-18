@@ -10,11 +10,6 @@
         <%= f.text_field :tag_list, :class => 'fullwidth'  %>  
         <%= f.error_message_on :tags %>
     <% end %>
-    <%= f.field_container :summary do %>
-        <%= f.label :summary, t("summary") %> <span class="required">*</span><br />
-        <%= f.text_area :summary, :class => 'fullwidth editor', :style => 'height: 80px'  %>  
-        <%= f.error_message_on :summary %>
-    <% end %>
     <%= f.field_container :body do %>
         <%= f.label :body, t("body") %>
         <%= f.text_area :body, :class => 'fullwidth editor'  %>  

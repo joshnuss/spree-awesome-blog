@@ -3,7 +3,6 @@ en:
   blog: Blog
   posts: Posts
   title: Title
-  summary: Summary
   new_post: New Post
   unpublished: Unpublished
   published: Published
@@ -21,7 +20,7 @@ en:
   posts_month: Posts for %s
   posts_day: Posts for %s
   read_more: Read more
-  tags: Tags
+  tags: Labels
   comma_seperated: Comma seperated
   your_name: Your name
   your_email: Your email
@@ -31,3 +30,4 @@ en:
   not_shared: Your email is never shared with anyone
   created_successfully_pending_approval: Comment was successfully created. It will displayed once it is approved
   comment_on_post: Comment on this post
+  blog_archive: Blog Archive

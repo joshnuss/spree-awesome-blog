@@ -10,10 +10,6 @@ describe Post do
       create_post(:title => '').should have(1).error_on(:title)
     end
 
-    it "should require summary" do
-      create_post(:summary => nil).should have(1).error_on(:summary)
-    end
-
     it "should have permalink" do
       post = create_post(:title => 'Test Post')
       post.permalink.should eql('test-post')
@@ -96,6 +92,6 @@ describe Post do
   end
 
   def create_post(options={})
-    Post.create({:title => 'test', :summary => 'this is a summary'}.merge(options))
+    Post.create({:title => 'test'}.merge(options))
   end
 end
