@@ -6,17 +6,17 @@
   <% @posts.each do |post| %>
     <div class="post">
       <h2><%= link_to post.title, post_path(post) %></h2>
-      <div class="date">
-        <%= post.published_on.to_date.to_s :long %>
-      </div>
       <div class="summary">
-        <%= post.summary %>
+        <%= markdown post.summary %>
       </div>
       <div class="read-more">
         <%= link_to t("read_more"), post_path(post) %>
       </div>
       <div class="tags">
         <%= render 'tags', :tags => post.tags %>
+      </div>
+      <div class="date">
+        Posted <%= time_ago_in_words post.published_on %> ago
       </div>
       <div class="comments">
         <%= link_to t("comments"), "#{post_path(post)}#comments" %>
