@@ -1,3 +1,22 @@
 <h2><%= t('blog_archive') %></h2>
+<div id="blog-archive">
+  <ul class="years">
+    <% @dates.each do |year, months| %>
+      <li>
+      <%= year %>
+      <ul class="months">
+        <% months.each do |month, posts| %>
+          <li><%= month.strftime('%B') %></li>
+          <ul class="posts">
+            <% posts.each do |post| %>
+              <li><%= link_to post.title, post_path(post) %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </ul>
+      </li>
+    <% end %>
+  </ul>
+</div>
 <h2><%= t('tags') %></h2>
 <%= render 'tag_cloud' %>

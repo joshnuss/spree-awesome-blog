@@ -1,5 +1,5 @@
 class PostsController < Spree::BaseController
-  before_filter :load_tag_cloud
+  before_filter :load_tag_cloud, :load_dates
 
   def index
     @tag   = params[:tag]
@@ -26,4 +26,7 @@ protected
     @tags = Post.tag_counts_on(:tags)
   end
 
+  def load_dates
+    @dates = Post.group_dates
+  end
 end

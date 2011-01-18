@@ -91,7 +91,27 @@ describe Post do
     end
   end
 
+  it "should group by dates" do
+    create_post(:title => "january post", :publish => true, :published_on => Date.new(2010,01,01))
+    create_post(:title => "january post 2", :publish => true, :published_on => Date.new(2010,01,01))
+    create_post(:title => "january post", :publish => true, :published_on => Date.new(2010,02,01))
+    create_post(:title => "january post 2", :publish => true, :published_on => Date.new(2011,03,05))
+
+    group = Post.published.group_dates
+
+    group.should_not be_empty
+    group.first.first.should eql(2011)
+
+    month = group.first[1][0][0]
+    month.to_date.should eql(Date.new(2011,03,01))
+  end
+
   def create_post(options={})
-    Post.create({:title => 'test'}.merge(options))
+    post = Post.create({:title => 'test'}.merge(options))
+    if options.key?(:published_on)
+      post.published_on = options[:published_on]
+      post.save
+    end
+    post
   end
 end

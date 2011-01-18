@@ -24,6 +24,12 @@ class Post < ActiveRecord::Base
     where('published_on BETWEEN ? AND ?', start_date, end_date)
   end
 
+  def self.group_dates
+    select('published_on, title, permalink').
+      group_by {|post| post.published_on.to_date.advance(:days => -(post.published_on.day-1)) }.
+      group_by {|date| date.first.year }
+  end
+
   def status
     publish ? "published" : "unpublished"
   end

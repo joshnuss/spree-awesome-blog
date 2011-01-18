@@ -22,6 +22,12 @@ describe PostsController do
       
       assigns(:tags).should eql(:tags)
     end
+
+    it "should assign dates" do
+      Post.should_receive(:group_dates).and_return(:dates)
+      get :show, :id => 'test'
+      assigns(:dates).should eql(:dates)
+    end
   end
 
   describe "GET /index" do
@@ -40,10 +46,14 @@ describe PostsController do
 
     it "should assign tags" do
       Post.should_receive(:tag_counts_on).with(:tags).and_return(:tags)
-
       get :index
-      
       assigns(:tags).should eql(:tags)
+    end
+
+    it "should assign dates" do
+      Post.should_receive(:group_dates).and_return(:dates)
+      get :index
+      assigns(:dates).should eql(:dates)
     end
   end
 
