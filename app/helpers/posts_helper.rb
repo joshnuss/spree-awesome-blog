@@ -1,4 +1,6 @@
 module PostsHelper
+  include ActsAsTaggableOn::TagsHelper
+
   def make_title(tag=nil, year=nil, month=nil, day=nil)
     if tag
       t("posts_tagged") % tag.humanize.capitalize
