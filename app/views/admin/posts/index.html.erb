@@ -30,8 +30,16 @@
     <%- locals = {:post => post} %>
     <%= hook :admin_posts_index_rows, locals do %>
       <td><%= post.title %></td>
-      <td><%= post.summary %></td>
-      <td><%= post.publish ? link_to(t(post.status), post_path(post), :target => post.permalink) : t(post.status) %></td>
+      <td><%= markdown post.summary %></td>
+      <td>
+        <% if post.publish %> 
+          <%= link_to(t(post.status), post_path(post), :target => post.permalink) %>
+          <br/>
+          <%= time_ago_in_words post.published_on %> ago
+        <% else %>
+          <%= t(post.status) %>
+        <% end %>
+      </td>
     <% end %>
     <td class="actions">
       <%= hook :admin_posts_index_row_actions, locals do %>

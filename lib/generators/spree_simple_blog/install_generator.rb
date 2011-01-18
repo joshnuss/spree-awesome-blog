@@ -4,8 +4,9 @@ module SpreeSimpleBlog
       source_root File.expand_path("../../templates", __FILE__)
 
       desc "Configures your Rails application for use with spree_simple_blog"
-      def copy_migrations
+      def copy_files
         directory "db"
+        directory "public"
       end
 
     end
