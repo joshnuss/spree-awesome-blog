@@ -4,6 +4,7 @@
 #posts .post hr { margin: 10px 0 20px; }
 #posts .post .body { margin: 0 40px 0 0; }
 #blog-archive span { cursor: pointer; }
+#blog-archive a { text-decoration: none; }
 #blog-archive ul.months { display: none; }
 #blog-archive ul.posts { display: none; }
 #blog-archive ul.posts {
@@ -27,3 +28,7 @@
   font-size: 1.6em;
   font-weight: bolder;
 }
+#post h2 { margin: 0px; }
+#post #body { margin: 0px 20px 0 0; }
+.tags a { text-decoration: none; }
+#tags a { text-decoration: none; }

@@ -21,4 +21,12 @@ private
 
     @collection = @collection.paginate(:page => params[:page], :per_page => 10)
   end
+
+  def object
+    return @object if @object
+
+    @object = Comment.find_by_id(params[:id])
+    @object.approved = params[:comment][:approved] if params[:comment] && params[:comment].key?(:approved)
+    @object
+  end
 end

@@ -20,7 +20,7 @@ en:
   posts_month: Posts for %s
   posts_day: Posts for %s
   read_more: Read more
-  tags: Labels
+  tags: Tags
   comma_seperated: Comma seperated
   your_name: Your name
   your_email: Your email
@@ -31,3 +31,4 @@ en:
   created_successfully_pending_approval: Comment was successfully created. It will displayed once it is approved
   comment_on_post: Comment on this post
   blog_archive: Blog Archive
+  url: URL

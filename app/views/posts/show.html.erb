@@ -1,6 +1,9 @@
 <% self.title = @post.title %>
 <% def self.object; @post; end %>
 
+<% content_for(:head) do %>
+  <%= stylesheet_link_tag 'blog' %>
+<% end %>
 <% content_for(:sidebar) do %>
   <%= render 'sidebar' %>
 <% end %>
@@ -22,10 +25,13 @@
     <h2><%= t("comments") %></h2>
     <% @post.comments.approved.each do |comment| %>
       <div class="comment">
+        <p class="info">
+        Posted by <b><%= comment.url.blank? ? comment.name : link_to(comment.name, comment.url) %></b> <%= time_ago_in_words comment.created_at %> ago
+        </p>
+        <div>
         <%= markdown comment.message %>
-        <div class="info">
-          Posted <%= time_ago_in_words comment.created_at %> ago by <%= comment.name %>
         </div>
+        <hr/>
       </div>
     <% end %>
     <div id="new-comment">
