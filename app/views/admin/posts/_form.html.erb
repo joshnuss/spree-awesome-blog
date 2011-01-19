@@ -1,4 +1,11 @@
 <%= render "shared/error_messages", :target => f.object %>
+
+<div id="images" style="display:none">
+  <% f.object.images.each do |image| %>
+    <%= image_tag image.attachment.url(:large), :alt => image.alt %>
+  <% end %>
+</div>
+
 <fieldset>
     <%= f.field_container :title do %>
         <%= f.label :title, t("title") %> <span class="required">*</span><br />
