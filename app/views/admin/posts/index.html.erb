@@ -28,7 +28,7 @@
   <tr id="<%= dom_id post %>"> 
     <%- locals = {:post => post} %>
     <%= hook :admin_posts_index_rows, locals do %>
-      <td><%= post.title %></td>
+      <td><%= link_to post.title, edit_admin_post_path(post) %></td>
       <td>
         <% if post.publish %> 
           <%= link_to(t(post.status), post_path(post), :target => post.permalink) %>
