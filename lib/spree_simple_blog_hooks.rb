@@ -4,7 +4,7 @@ class SpreeFaqHooks < Spree::ThemeSupport::HookListener
   end
 
   insert_after :admin_inside_head do
-    %(<%= javascript_include_tag 'jquery.wmd.min.js', 'admin/blog.js' %> <%= stylesheet_link_tag 'wmd' %>)
+    %(<%= javascript_include_tag 'jquery.markitup.showdown.js', 'admin/blog.js' %> <%= stylesheet_link_tag 'admin/blog' %>)
   end
 end
 
