@@ -1,4 +1,4 @@
-Simple Blog
+Awesome Blog
 ===
 
 Introduction goes here.

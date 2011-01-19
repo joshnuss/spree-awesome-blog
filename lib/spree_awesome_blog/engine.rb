@@ -1,6 +1,6 @@
-require "spree_simple_blog"
+require "spree_awesome_blog"
 
-module SpreeSimpleBlog
+module SpreeAwesomeBlog
 
   class Engine < Rails::Engine
 

@@ -4,7 +4,7 @@ require 'rake/testtask'
 require 'rake/packagetask'
 require 'rake/gempackagetask'
 
-spec = eval(File.read('spree_simple_blog.gemspec'))
+spec = eval(File.read('spree_awesome_blog.gemspec'))
 
 Rake::GemPackageTask.new(spec) do |p|
   p.gem_spec = spec
@@ -39,7 +39,7 @@ task :test_app do
         <<-gems
         gem 'spree_core', :path => '#{File.join(SPREE_PATH, 'core')}'
         gem 'spree_auth', :path => '#{File.join(SPREE_PATH, 'auth')}'
-        gem 'spree_simple_blog', :path => '../..'
+        gem 'spree_awesome_blog', :path => '../..'
         gems
       end
     end
@@ -47,7 +47,7 @@ task :test_app do
     def install_gems
       system("cd spec/test_app && rake spree_core:install")
       system("cd spec/test_app && rake spree_auth:install")
-      generate 'spree_simple_blog:install'
+      generate 'spree_awesome_blog:install'
     end
 
     def migrate_db

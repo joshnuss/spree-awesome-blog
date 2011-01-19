@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name        = 'spree_simple_blog'
+  s.name        = 'spree_awesome_blog'
   s.version     = '3.0.2'
   s.summary     = 'Adds a basic blog with admin management tools'
   s.required_ruby_version = '>= 1.8.7'
