@@ -8,7 +8,6 @@ Gem::Specification.new do |s|
   s.author            = 'Josh Nussbaum'
   s.email             = 'joshnuss@gmail.com'
   s.homepage          = 'http://spreecommerce.com'
-  s.rubyforge_project = 'spree_simple_blog'
 
   s.files        = Dir['README.md', 'lib/**/*', 'app/**/*', 'config/*', 'config/locales/*', 'db/*']
   s.require_path = 'lib'
