@@ -5,15 +5,15 @@
   <thead>
     <%= hook :admin_comments_index_headers do %>
       <% unless @post %>
-        <th><%= t("post") %></td>
+        <th width="100px"><%= t("post") %></td>
       <% end %>
       <th><%= t("name") %></td>
       <th><%= t("email") %></td>
       <th><%= t("url") %></td>
       <th><%= t("message") %></td>
-      <th><%= t("status") %></td>
+      <th width="80px"><%= t("status") %></td>
     <% end %>
-    <th>
+    <th width="100px">
       <%= hook :admin_comments_header_actions %>
     </th>
   </tr>
