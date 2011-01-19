@@ -1,0 +1,18 @@
+<%= render :partial => 'shared/blog_sub_menu' %>
+
+<%= render :partial => 'shared/blog_tabs', :locals => {:current => "Images"} %>
+
+<%= form_for(:image, :url => admin_post_image_url(@post), :html => { :method => :put, :multipart => true }) do |f| %>
+  <%= render "shared/error_messages", :target => @image %>
+  <table class="basic-table">
+    <tr>
+      <td><%= t("thumbnail") %>:</td>
+      <td><%= link_to(image_tag(@image.attachment.url(:mini)), @image.attachment.url(:post)) %></td>
+    </tr>
+    <%= render :partial => "form", :locals => { :f => f } %>
+  </table>
+  <p class="form-buttons">
+    <%= button t("update") %>
+    <%= t('or') %> <%= link_to t("cancel"), admin_post_images_url(@post), :id => "cancel_link" %>
+  </p>
+<% end %>

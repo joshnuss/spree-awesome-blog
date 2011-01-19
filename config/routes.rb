@@ -10,10 +10,10 @@ Rails.application.routes.draw do
     end
   end
 
-
   namespace :admin do 
     resources :posts do
       resources :comments
+      resources :images, :controller => 'post_images'
     end
     resources :comments
   end
