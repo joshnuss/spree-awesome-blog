@@ -18,6 +18,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency('spree_core',  '>= 0.30.1')
   s.add_dependency('acts-as-taggable-on',  '>= 2.0.0.rc1')
-  s.add_dependency('bluecloth',  '= 2.0.10')
+  s.add_dependency('rdiscount',  '= 1.6.5')
 end
 

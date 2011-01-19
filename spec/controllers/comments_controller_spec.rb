@@ -37,7 +37,10 @@ describe CommentsController do
       end
 
       describe "not logged in" do
-        before { @comment.should_receive(:user=).with(nil) }
+        before do
+          controller.stub(:current_user => nil)
+          @comment.should_receive(:user=).with(nil)
+        end
 
         it "should redirect to post" do
           post :create, :post_id => 'test-post', :comment => {:name => 'test'}
@@ -59,6 +62,7 @@ describe CommentsController do
 
     describe "invalid data" do
       before do
+        controller.stub(:current_user => nil)
         @comment.should_receive(:user=).with(nil)
         @comment.should_receive(:save).and_return(false)
       end

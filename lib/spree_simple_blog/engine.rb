@@ -15,7 +15,7 @@ module SpreeSimpleBlog
         end
 
         def markdown(text)
-          sanitize(BlueCloth.new(text).to_html)
+          sanitize(RDiscount.new(text).to_html)
         end
       end
       
